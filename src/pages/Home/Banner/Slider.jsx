@@ -8,7 +8,7 @@ import Colloring from '../../../assets/colloring.jpg';
 import ColorFull from '../../../assets/colorFull.jpg';
 const Slider = () => {
   return (
-    <div className='my-6'>
+    <div className='mt-6'>
       <Swiper
         navigation={true}
         loop={true}
