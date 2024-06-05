@@ -1,10 +1,21 @@
 import { Link, NavLink } from 'react-router-dom';
 import { IoCloseSharp, IoMenu } from 'react-icons/io5';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Logo from '../assets/logo.png';
+import { AuthContext } from '../providers/AuthProvider';
+import toast from 'react-hot-toast';
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
-
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        toast.success('Logout Successfully!');
+      })
+      .catch((err) => {
+        toast.error(err.massage);
+      });
+  };
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -31,36 +42,62 @@ const Navbar = () => {
       >
         All Art & Crafts
       </NavLink>
-      <NavLink
-        to='/all-craft'
-        className={({ isActive }) =>
-          isActive
-            ? 'mt-2 transition-colors duration-300 font-bold transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200'
-            : 'mt-2 font-medium transition-colors duration-300 text-black transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200'
-        }
-      >
-        Add Craft Item
-      </NavLink>
-      <NavLink
-        to='/my-art-craft-list'
-        className={({ isActive }) =>
-          isActive
-            ? 'mt-2 transition-colors duration-300 font-bold transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200'
-            : 'mt-2 font-medium transition-colors duration-300 text-black transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200'
-        }
-      >
-        My Art & Craft List
-      </NavLink>
-      <Link to='/login'>
-        <button className='btn mr-2 btn-warning font-playfairDisplay text-xl my-4'>
-          Login
-        </button>
-      </Link>
-      <Link to='/register'>
-        <button className='btn btn-error font-playfairDisplay text-xl'>
-          Register
-        </button>
-      </Link>
+      {user && (
+        <>
+          <NavLink
+            to='/all-craft'
+            className={({ isActive }) =>
+              isActive
+                ? 'mt-2 transition-colors duration-300 font-bold transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200'
+                : 'mt-2 font-medium transition-colors duration-300 text-black transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200'
+            }
+          >
+            Add Craft Item
+          </NavLink>
+          <NavLink
+            to='/my-art-craft-list'
+            className={({ isActive }) =>
+              isActive
+                ? 'mt-2 transition-colors duration-300 font-bold transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200'
+                : 'mt-2 font-medium transition-colors duration-300 text-black transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200'
+            }
+          >
+            My Art & Craft List
+          </NavLink>
+        </>
+      )}
+      {user ? (
+        <>
+          <div className='avatar my-4'>
+            <div className='w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 '>
+              <img
+                src={user?.photoURL}
+                className='tooltip cursor-pointer tooltip-top '
+                title={user?.displayName}
+              />
+            </div>
+          </div>
+          <button
+            className='btn mx-4 btn-error font-playfairDisplay text-2xl my-4'
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <Link to='/login'>
+            <button className='btn mr-2 btn-warning font-playfairDisplay text-xl my-4'>
+              Login
+            </button>
+          </Link>
+          <Link to='/register'>
+            <button className='btn btn-error font-playfairDisplay text-xl'>
+              Register
+            </button>
+          </Link>
+        </>
+      )}
     </>
   );
 
