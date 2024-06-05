@@ -8,7 +8,7 @@ import GlassDaining from '../../../assets/glass-daining.jpg';
 const ShopCategory = () => {
   return (
     <div>
-      <h1 className='text-4xl text-center my-4 font-playfairDisplay font-bold my-2'>
+      <h1 className='text-4xl text-center  font-playfairDisplay font-bold my-2'>
         Shop by Category
       </h1>
 
