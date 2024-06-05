@@ -12,7 +12,7 @@ const ShopCategory = () => {
         Shop by Category
       </h1>
 
-      <div className='grid gap-4 m-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+      <div className='font-montserrat grid gap-4 m-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         <div className=' overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800'>
           <img
             alt='NIKE AIR'
