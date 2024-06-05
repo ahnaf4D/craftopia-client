@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { IoCloseSharp, IoMenu } from 'react-icons/io5';
 import { useState } from 'react';
-
+import Logo from '../assets/logo.png';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,16 +66,15 @@ const Navbar = () => {
 
   return (
     <nav className='relative bg-white  dark:bg-gray-800'>
-      <div className='px-6 py-4 md:flex md:justify-between md:items-center'>
+      <div className='px-2  py-2 lg:flex lg:justify-between lg:items-center'>
         <div className='flex items-center justify-between'>
-          <a href='#'>
-            <img
-              alt=''
-              className='w-auto h-6 sm:h-7'
-              src='https://merakiui.com/images/full-logo.svg'
-            />
-          </a>
-          <div className='flex md:hidden lg:hidden'>
+          <Link to='/' className='flex items-center cursor-pointer'>
+            <img src={Logo} alt='' />
+            <p className='font-playfairDisplay text-4xl'>
+              Craf<span className='underline'>topia</span>
+            </p>
+          </Link>
+          <div className='flex  lg:hidden'>
             <button
               aria-label='toggle menu'
               onClick={toggleMenu}
@@ -91,11 +90,11 @@ const Navbar = () => {
           </div>
         </div>
         <div
-          className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 ${
+          className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100  ${
             isOpen ? 'block' : 'hidden'
-          } md:flex md:items-center`}
+          } lg:flex lg:items-center`}
         >
-          <div className='flex flex-col lg:items-center font-montserrat text-xl md:flex-row md:mx-6'>
+          <div className='flex flex-col lg:items-center font-montserrat text-xl lg:flex-row lg:mx-6'>
             {navOptions}
           </div>
         </div>
