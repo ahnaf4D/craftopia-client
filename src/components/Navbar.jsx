@@ -45,7 +45,7 @@ const Navbar = () => {
       {user && (
         <>
           <NavLink
-            to='/all-craft'
+            to='/add-craft-item'
             className={({ isActive }) =>
               isActive
                 ? 'mt-2 transition-colors duration-300 font-bold transform lg:mt-0 lg:mx-4 hover:text-gray-900 dark:hover:text-gray-200'

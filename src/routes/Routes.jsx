@@ -3,6 +3,7 @@ import Main from '../layout/Main';
 import Home from '../pages/Home/Home/Home';
 import Login from '../pages/Authentication/Login/Login';
 import Register from '../pages/Authentication/Register/Register';
+import AddCraftItem from '../pages/AddCraftItem/AddCraftItem';
 
 const routes = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const routes = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>,
+      },
+      {
+        path: '/add-craft-item',
+        element: <AddCraftItem></AddCraftItem>,
       },
     ],
   },
