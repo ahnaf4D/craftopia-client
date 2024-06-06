@@ -10,6 +10,7 @@ import MyArtCrafts from '../pages/MyArtCrafts/MyArtCrafts';
 import UpdateCraftItem from '../pages/UpdateCraftItem/UpdateCraftItem';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import PrivateRoutes from './PrivateRoutes';
+import SubCategoryCraft from '../pages/Home/ShopCategory/SubCategoryCraft';
 
 const routes = createBrowserRouter([
   {
@@ -64,6 +65,16 @@ const routes = createBrowserRouter([
         element: <UpdateCraftItem></UpdateCraftItem>,
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_BASE}/crafts/${params.id}`),
+      },
+      {
+        path: '/sub-category/:category',
+        element: <SubCategoryCraft></SubCategoryCraft>,
+        loader: ({ params }) =>
+          fetch(
+            `${import.meta.env.VITE_API_BASE}/crafts/subcategory/${
+              params.category
+            }`
+          ),
       },
     ],
   },
