@@ -1,17 +1,21 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddCraftItem = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleAddItem = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const itemName = e.target.item_name.value;
     const subCategoryName = e.target.sub_category.value;
-    const itemPrice = e.target.item_price.value;
+    const itemPrice = parseFloat(e.target.item_price.value);
     const customizationStatus = e.target.customization.value;
-    const itemRating = e.target.item_rating.value;
+    const itemRating = parseFloat(e.target.item_rating.value);
     const itemProcessingTime = e.target.item_processing_time.value;
     const stockStatus = e.target.stock_status.value;
     const itemShortDescription = e.target.item_short_description.value;
@@ -29,6 +33,13 @@ const AddCraftItem = () => {
       stockStatus,
       itemShortDescription,
     };
+    axios
+      .post(`${import.meta.env.VITE_API_BASE}/crafts`, itemDetails)
+      .then(() => {
+        e.target.reset();
+        toast.success('Craft Item Added Successfully');
+        navigate('/');
+      });
     console.log(itemDetails);
   };
   return (
@@ -54,6 +65,7 @@ const AddCraftItem = () => {
               defaultValue={user?.displayName}
               className='input input-bordered w-full rounded-lg p-4'
               placeholder='Your Name'
+              required
             />
           </div>
           <div className='form-control w-full md:w-1/2'>
@@ -69,6 +81,7 @@ const AddCraftItem = () => {
               defaultValue={user?.email}
               className='input input-bordered w-full rounded-lg p-4'
               placeholder='Your Email'
+              required
             />
           </div>
         </div>
@@ -85,6 +98,7 @@ const AddCraftItem = () => {
               name='item_name'
               placeholder='Item Name'
               className='input input-bordered w-full rounded-lg p-4'
+              required
             />
           </div>
           <div className='form-control w-full md:w-1/2'>
@@ -120,6 +134,7 @@ const AddCraftItem = () => {
               name='item_price'
               placeholder='Item Price'
               className='input input-bordered w-full rounded-lg p-4'
+              required
             />
           </div>
           <div className='form-control w-full md:w-1/2'>
@@ -150,6 +165,9 @@ const AddCraftItem = () => {
               type='number'
               name='item_rating'
               placeholder='Item Rating'
+              min={1}
+              max={5}
+              required
               className='input input-bordered w-full rounded-lg p-4'
             />
           </div>
@@ -165,6 +183,7 @@ const AddCraftItem = () => {
               name='item_processing_time'
               placeholder='Processing Time'
               className='input input-bordered w-full rounded-lg p-4'
+              required
             />
           </div>
         </div>
@@ -196,6 +215,7 @@ const AddCraftItem = () => {
               name='item_url'
               placeholder='Item Photo URL'
               className='input input-bordered w-full rounded-lg p-4'
+              required
             />
           </div>
         </div>
@@ -212,6 +232,7 @@ const AddCraftItem = () => {
               placeholder='Enter the Description Here'
               name='item_short_description'
               cols={8}
+              required
             ></textarea>
           </div>
         </div>
