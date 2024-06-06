@@ -1,6 +1,5 @@
 import Lottie from 'lottie-react';
 import groovyWalkAnimation from './register.json';
-import Social from '../Social/Social';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
@@ -101,8 +100,6 @@ const Register = () => {
                   Old User
                 </Link>
               </div>
-              <div className='divider'>OR Using</div>
-              <Social></Social>
             </form>
           </div>
         </div>

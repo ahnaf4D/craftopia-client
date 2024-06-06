@@ -2,7 +2,7 @@
   {
     "image": "https://images.unsplash.com/photo-1678213430959-c3b0efe2a9dd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "item_name": "Handcrafted Paper Flower Bouquet",
-    "subcategory_Name": "Paper Flowers",
+    "subcategory_Name": "CardMaking",
     "short_description": "A beautiful bouquet of handcrafted paper flowers, perfect for any occasion.",
     "price": 29.99,
     "rating": 4.8,
@@ -15,7 +15,7 @@
   {
     "image": "https://plus.unsplash.com/premium_photo-1713877723502-edc773de63c3?q=80&w=1589&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "item_name": "Stained Glass Sun Catcher",
-    "subcategory_Name": "Glass Art",
+    "subcategory_Name": "Glass Dying & Staining",
     "short_description": "Brighten up your windows with this stunning stained glass sun catcher.",
     "price": 45.0,
     "rating": 4.7,
@@ -28,7 +28,7 @@
   {
     "image": "https://plus.unsplash.com/premium_photo-1678037611091-20678098a609?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "item_name": "Origami Crane Mobile",
-    "subcategory_Name": "Origami",
+    "subcategory_Name": "Paper Quilling & Origami",
     "short_description": "A delicate mobile featuring intricately folded origami cranes.",
     "price": 35.5,
     "rating": 4.9,
@@ -41,7 +41,7 @@
   {
     "image": "https://plus.unsplash.com/premium_photo-1702606121095-2ff629bc257a?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "item_name": "Blown Glass Vase",
-    "subcategory_Name": "Glass Blowing",
+    "subcategory_Name": "Lampworking",
     "short_description": "A unique blown glass vase that adds a touch of elegance to any room.",
     "price": 60.0,
     "rating": 4.6,
@@ -54,7 +54,7 @@
   {
     "image": "https://plus.unsplash.com/premium_photo-1706287679114-6a9ca17fe9c5?q=80&w=1615&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "item_name": "Quilled Paper Wall Art",
-    "subcategory_Name": "Paper Quilling",
+    "subcategory_Name": "Paper Quilling & Origami",
     "short_description": "An intricate quilled paper wall art piece, perfect for home decor.",
     "price": 50.0,
     "rating": 4.8,
@@ -67,7 +67,7 @@
   {
     "image": "https://images.unsplash.com/photo-1514651029128-173d2e6ea851?q=80&w=1585&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "item_name": "Glass Mosaic Coaster Set",
-    "subcategory_Name": "Glass Mosaics",
+    "subcategory_Name": "Glass Painting",
     "short_description": "A vibrant set of glass mosaic coasters to brighten up your table.",
     "price": 25.0,
     "rating": 4.5,
