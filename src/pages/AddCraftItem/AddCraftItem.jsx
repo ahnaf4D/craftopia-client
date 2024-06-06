@@ -63,6 +63,7 @@ const AddCraftItem = () => {
               type='text'
               name='name'
               defaultValue={user?.displayName}
+              readOnly
               className='input input-bordered w-full rounded-lg p-4'
               placeholder='Your Name'
               required
@@ -78,6 +79,7 @@ const AddCraftItem = () => {
             <input
               type='text'
               name='email'
+              readOnly
               defaultValue={user?.email}
               className='input input-bordered w-full rounded-lg p-4'
               placeholder='Your Email'

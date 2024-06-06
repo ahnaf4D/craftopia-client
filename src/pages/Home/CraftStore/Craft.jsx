@@ -6,7 +6,7 @@ const Craft = ({ craft }) => {
         <figure className='relative'>
           <img src={itemPhotoUrl} alt={itemName} className='size-72' />
           <figcaption className='absolute bottom-0 left-0 w-full bg-black bg-opacity-80 text-white p-4'>
-            <h2 className='text-lg font-bold'>{item_name}</h2>
+            <h2 className='text-lg font-bold'>{itemName}</h2>
             <p className='text-sm'>{itemShortDescription}</p>
             <div className='flex justify-between items-center'>
               <span className='text-xl font-bold'>${itemPrice.toFixed(2)}</span>

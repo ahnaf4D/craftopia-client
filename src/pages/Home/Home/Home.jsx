@@ -3,13 +3,13 @@ import Contact from '../Contact/Contact';
 import CraftStore from '../CraftStore/CraftStore';
 import Discount from '../Discount/Discount';
 import OurClients from '../OurClients/OurClients';
-import ShopCategory from '../ShopCategory/ShopCategory';
+// import ShopCategory from '../ShopCategory/ShopCategory';
 
 const Home = () => {
   return (
     <div>
       <Slider></Slider>
-      <ShopCategory></ShopCategory>
+      {/* <ShopCategory></ShopCategory> */}
       <CraftStore></CraftStore>
       <Discount></Discount>
       <OurClients></OurClients>

@@ -6,9 +6,10 @@ import Craft from './Craft';
 const CraftStore = () => {
   const [crafts, setCrafts] = useState([]);
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_BASE}/crafts`)
-      .then((res) => setCrafts(res.data));
+    axios.get(`${import.meta.env.VITE_API_BASE}/crafts`).then((res) => {
+      const firstSixCrafts = res.data.slice(0, 6);
+      setCrafts(firstSixCrafts);
+    });
   }, []);
   return (
     <div>
