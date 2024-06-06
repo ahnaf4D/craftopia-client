@@ -4,6 +4,7 @@ import Home from '../pages/Home/Home/Home';
 import Login from '../pages/Authentication/Login/Login';
 import Register from '../pages/Authentication/Register/Register';
 import AddCraftItem from '../pages/AddCraftItem/AddCraftItem';
+import AllArtCrafts from '../pages/AllArtCrafts/AllArtCrafts';
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
       {
         path: '/add-craft-item',
         element: <AddCraftItem></AddCraftItem>,
+      },
+      {
+        path: '/all-art-crafts',
+        element: <AllArtCrafts></AllArtCrafts>,
       },
     ],
   },
