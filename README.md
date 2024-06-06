@@ -1,4 +1,4 @@
-# Craftopia
+# Craftopia (Paper Crafts & Glass Art Sub Category)
 
 ![Craftopia](https://i.postimg.cc/Sxg0Xmtb/Screenshot-1.png)
 
