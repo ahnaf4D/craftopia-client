@@ -8,11 +8,13 @@ import AllArtCrafts from '../pages/AllArtCrafts/AllArtCrafts';
 import CraftDetails from '../components/CraftDetails';
 import MyArtCrafts from '../pages/MyArtCrafts/MyArtCrafts';
 import UpdateCraftItem from '../pages/UpdateCraftItem/UpdateCraftItem';
+import ErrorPage from '../pages/ErrorPage/ErrorPage';
 
 const routes = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
