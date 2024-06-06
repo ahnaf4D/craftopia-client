@@ -1,13 +1,15 @@
 import Lottie from 'lottie-react';
 import groovyWalkAnimation from './login.json';
 import Social from '../Social/Social';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import toast from 'react-hot-toast';
 const Login = () => {
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state || '/';
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -16,11 +18,11 @@ const Login = () => {
       .then(() => {
         toast.success('Login Successful!');
         e.target.reset();
-        navigate('/');
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         toast.error(err.massage);
-        navigate('/');
+        navigate(from, { replace: true });
       });
   };
   return (

@@ -2,13 +2,18 @@ import { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../../providers/AuthProvider';
 import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Social = () => {
   const { signInWithGithub, signInWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state || '/';
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then(() => {
         toast.success('Successfully Login with Google');
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         toast.error(err.massage);
@@ -18,6 +23,7 @@ const Social = () => {
     signInWithGithub()
       .then(() => {
         toast.success('Successfully Login with Github');
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         toast.error(err.massage);

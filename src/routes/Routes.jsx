@@ -9,6 +9,7 @@ import CraftDetails from '../components/CraftDetails';
 import MyArtCrafts from '../pages/MyArtCrafts/MyArtCrafts';
 import UpdateCraftItem from '../pages/UpdateCraftItem/UpdateCraftItem';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import PrivateRoutes from './PrivateRoutes';
 
 const routes = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ const routes = createBrowserRouter([
       },
       {
         path: '/add-craft-item',
-        element: <AddCraftItem></AddCraftItem>,
+        element: (
+          <PrivateRoutes>
+            <AddCraftItem></AddCraftItem>
+          </PrivateRoutes>
+        ),
       },
       {
         path: '/all-art-crafts',
@@ -38,13 +43,21 @@ const routes = createBrowserRouter([
       },
       {
         path: '/crafts/:id',
-        element: <CraftDetails></CraftDetails>,
+        element: (
+          <PrivateRoutes>
+            <CraftDetails></CraftDetails>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_BASE}/crafts/${params.id}`),
       },
       {
         path: '/my-art-craft-list',
-        element: <MyArtCrafts></MyArtCrafts>,
+        element: (
+          <PrivateRoutes>
+            <MyArtCrafts></MyArtCrafts>
+          </PrivateRoutes>
+        ),
       },
       {
         path: '/update-my-crafts/:id',
