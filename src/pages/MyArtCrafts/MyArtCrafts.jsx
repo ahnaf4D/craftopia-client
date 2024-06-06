@@ -3,6 +3,8 @@ import { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import MyArtCraftCard from './MyArtCraftCard';
+import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const MyArtCrafts = () => {
   const [crafts, setCrafts] = useState([]);
@@ -18,6 +20,30 @@ const MyArtCrafts = () => {
       })
       .then((res) => setCrafts(res.data));
   }, [user?.email, filter]);
+  const handleDeleteCraft = (id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`${import.meta.env.VITE_API_BASE}/crafts/${id}`)
+          .then(() => {
+            const newCraftItems = crafts.filter((craft) => craft._id !== id);
+            setCrafts(newCraftItems);
+            toast.success('Successfully Deleted the Item');
+          })
+          .catch(() => {
+            toast.error('Error in deleting craft items');
+          });
+      }
+    });
+  };
   return (
     <div>
       <h1 className='text-4xl text-center  font-playfairDisplay font-bold my-2'>
@@ -39,7 +65,11 @@ const MyArtCrafts = () => {
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4 m-12 lg:grid-cols-3'>
         {crafts.map((item) => (
-          <MyArtCraftCard key={item._id} item={item}></MyArtCraftCard>
+          <MyArtCraftCard
+            key={item._id}
+            item={item}
+            handleDeleteCraft={handleDeleteCraft}
+          ></MyArtCraftCard>
         ))}
       </div>
     </div>

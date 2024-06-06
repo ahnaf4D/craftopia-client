@@ -25,7 +25,7 @@ const Contact = () => {
                 Our friendly team is here to help.
               </p>
               <p className='mt-2 text-blue-500 dark:text-blue-400'>
-                hello@merakiui.com
+                contact@craftopia.com
               </p>
             </div>
             <div className='flex flex-col items-center justify-center text-center'>
