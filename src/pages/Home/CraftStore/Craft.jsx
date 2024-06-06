@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom';
+
 const Craft = ({ craft }) => {
-  const { itemPhotoUrl, itemName, itemShortDescription, itemPrice } = craft;
+  const { itemPhotoUrl, itemName, itemShortDescription, itemPrice, _id } =
+    craft;
   return (
     <div className='font-montserrat'>
       <div className='card card-compact bg-base-100 shadow-xl rounded-lg overflow-hidden'>
@@ -10,9 +13,11 @@ const Craft = ({ craft }) => {
             <p className='text-sm'>{itemShortDescription}</p>
             <div className='flex justify-between items-center'>
               <span className='text-xl font-bold'>${itemPrice.toFixed(2)}</span>
-              <button className='btn btn-primary font-playfairDisplay text-xl text-white'>
-                View Details
-              </button>
+              <Link to={`/crafts/${_id}`}>
+                <button className='btn btn-primary font-playfairDisplay text-xl text-white'>
+                  View Details
+                </button>
+              </Link>
             </div>
           </figcaption>
         </figure>

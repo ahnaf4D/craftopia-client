@@ -5,6 +5,7 @@ import Login from '../pages/Authentication/Login/Login';
 import Register from '../pages/Authentication/Register/Register';
 import AddCraftItem from '../pages/AddCraftItem/AddCraftItem';
 import AllArtCrafts from '../pages/AllArtCrafts/AllArtCrafts';
+import CraftDetails from '../components/CraftDetails';
 
 const routes = createBrowserRouter([
   {
@@ -30,6 +31,12 @@ const routes = createBrowserRouter([
       {
         path: '/all-art-crafts',
         element: <AllArtCrafts></AllArtCrafts>,
+      },
+      {
+        path: '/crafts/:id',
+        element: <CraftDetails></CraftDetails>,
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_BASE}/crafts/${params.id}`),
       },
     ],
   },

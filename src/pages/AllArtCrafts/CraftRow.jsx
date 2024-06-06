@@ -1,6 +1,15 @@
+import { Link } from 'react-router-dom';
+
 const CraftRow = ({ craft }) => {
-  const { itemPhotoUrl, itemName, subCategoryName, email, itemPrice, name } =
-    craft;
+  const {
+    itemPhotoUrl,
+    itemName,
+    subCategoryName,
+    email,
+    itemPrice,
+    name,
+    _id,
+  } = craft;
   return (
     <>
       <tr className='border-b  border-gray-200 hover:bg-gray-100 transition ease-in-out duration-150'>
@@ -31,7 +40,9 @@ const CraftRow = ({ craft }) => {
           ${itemPrice.toFixed(2)}
         </td>
         <td className='px-6 py-4 text-center'>
-          <button className='btn btn-primary btn-xs'>View Details</button>
+          <Link to={`/crafts/${_id}`}>
+            <button className='btn btn-primary btn-xs'>View Details</button>
+          </Link>
         </td>
       </tr>
     </>

@@ -1,39 +1,28 @@
-const CraftRow = ({ craft }) => {
-  const { itemPhotoUrl, itemName, subCategoryName, email, itemPrice, name } =
-    craft;
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Craft from './Craft';
+
+const CraftStore = () => {
+  const [crafts, setCrafts] = useState([]);
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_API_BASE}/crafts`).then((res) => {
+      const firstSixCrafts = res.data.slice(0, 6);
+      setCrafts(firstSixCrafts);
+    });
+  }, []);
   return (
-    <tr className='border-b border-gray-200 hover:bg-gray-100 transition ease-in-out duration-150'>
-      <td className='px-6 py-4'>
-        <div className='flex items-center'>
-          <div className='avatar'>
-            <div className='mask mask-squircle w-12 h-12'>
-              <img
-                src={itemPhotoUrl}
-                alt={itemName}
-                className='w-full h-full object-cover'
-              />
-            </div>
-          </div>
-          <div className='ml-4'>
-            <div className='font-bold'>{itemName}</div>
-            <div className='text-sm text-gray-500'>{subCategoryName}</div>
-          </div>
-        </div>
-      </td>
-      <td className='px-6 py-4'>
-        <div>
-          <p className='font-semibold'>{name}</p>
-          <p className='text-gray-500'>{email}</p>
-        </div>
-      </td>
-      <td className='px-6 py-4 text-green-500 font-semibold'>
-        ${itemPrice.toFixed(2)}
-      </td>
-      <td className='px-6 py-4'>
-        <button className='btn btn-primary btn-xs'>View Details</button>
-      </td>
-    </tr>
+    <div>
+      <h1 className='text-4xl text-center  font-playfairDisplay font-bold my-2'>
+        Craft Items
+      </h1>
+      <div className='grid grid-cols-1 gap-4 m-8 md:grid-cols-2 lg:grid-cols-3'>
+        {crafts.map((craft) => (
+          <Craft key={craft._id} craft={craft}></Craft>
+        ))}
+      </div>
+    </div>
   );
 };
 
-export default CraftRow;
+export default CraftStore;
