@@ -1,11 +1,26 @@
 import { Link, NavLink } from 'react-router-dom';
 import { IoCloseSharp, IoMenu } from 'react-icons/io5';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Logo from '../assets/logo.png';
 import { AuthContext } from '../providers/AuthProvider';
 import toast from 'react-hot-toast';
+import { FaRegMoon } from 'react-icons/fa';
+import { GoSun } from 'react-icons/go';
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState('light');
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    const localTheme = localStorage.getItem('theme');
+    document.querySelector('html').setAttribute('data-theme', localTheme);
+  }, [theme]);
   const [isOpen, setIsOpen] = useState(false);
   const handleLogout = () => {
     logOut()
@@ -98,6 +113,19 @@ const Navbar = () => {
           </Link>
         </>
       )}
+      <label className='swap swap-rotate mx-4'>
+        {/* this hidden checkbox controls the state */}
+        <input
+          type='checkbox'
+          onChange={handleToggle}
+          className='theme-controller'
+          value='synthwave'
+        />
+
+        {/* sun icon */}
+        <GoSun className='swap-off  w-10 h-10'></GoSun>
+        <FaRegMoon className='swap-on  w-10 h-10'></FaRegMoon>
+      </label>
     </>
   );
 
