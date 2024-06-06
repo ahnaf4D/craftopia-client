@@ -41,9 +41,11 @@ const MyArtCraftCard = ({ item }) => {
             <span className='font-semibold'>Stock Status:</span> {stockStatus}
           </p>
           <div className='card-actions flex justify-between mt-4'>
-            <button className='btn btn-primary bg-purple-700 hover:bg-purple-800 text-white flex items-center gap-2'>
-              <TiPencil className='text-2xl' /> Edit
-            </button>
+            <Link to={`/update-my-crafts/${_id}`}>
+              <button className='btn btn-primary bg-purple-700 hover:bg-purple-800 text-white flex items-center gap-2'>
+                <TiPencil className='text-2xl' /> Edit
+              </button>
+            </Link>
             <button className='btn btn-primary bg-red-700 hover:bg-red-800 text-white flex items-center gap-2'>
               <MdDeleteForever className='text-2xl' /> Delete
             </button>
