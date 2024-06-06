@@ -11,8 +11,6 @@ const AllArtCrafts = () => {
       .then((res) => setCrafts(res.data));
   }, []);
 
-  console.log(crafts);
-
   return (
     <div className='container mx-auto my-8'>
       <h1 className='text-4xl text-center font-playfairDisplay mb-6'>

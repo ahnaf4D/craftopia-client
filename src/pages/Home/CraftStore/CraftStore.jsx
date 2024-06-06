@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Craft from './Craft';
+import { Link } from 'react-router-dom';
 
 const CraftStore = () => {
   const [crafts, setCrafts] = useState([]);
@@ -20,6 +21,13 @@ const CraftStore = () => {
         {crafts.map((craft) => (
           <Craft key={craft._id} craft={craft}></Craft>
         ))}
+      </div>
+      <div className='flex justify-center'>
+        <Link to='/all-art-crafts'>
+          <button className='btn btn-warning text-xl font-montserrat mb-4'>
+            All Crafts
+          </button>
+        </Link>
       </div>
     </div>
   );

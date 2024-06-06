@@ -40,7 +40,6 @@ const AddCraftItem = () => {
         toast.success('Craft Item Added Successfully');
         navigate('/');
       });
-    console.log(itemDetails);
   };
   return (
     <div>
@@ -108,7 +107,7 @@ const AddCraftItem = () => {
               htmlFor='sub_category'
               className='label-text font-semibold mb-2'
             >
-              Select Craft Category
+              Select Craft Sub Category
             </label>
             <select
               className='select select-bordered  rounded-lg '
@@ -181,7 +180,7 @@ const AddCraftItem = () => {
             <input
               type='text'
               name='item_processing_time'
-              placeholder='Processing Time'
+              placeholder='Processing Time e.g. 6-7 days'
               className='input input-bordered w-full rounded-lg p-4'
               required
             />
