@@ -7,10 +7,10 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  GithubAuthProvider,
   updateProfile,
 } from 'firebase/auth';
 import app from '../firebase/firebase.config';
-import { GithubAuthProvider } from 'firebase/auth/web-extension';
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
