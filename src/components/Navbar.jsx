@@ -1,3 +1,4 @@
+import { Tooltip } from 'react-tooltip';
 import { Link, NavLink } from 'react-router-dom';
 import { IoCloseSharp, IoMenu } from 'react-icons/io5';
 import { useContext, useEffect, useState } from 'react';
@@ -88,7 +89,8 @@ const Navbar = () => {
               <img
                 src={user?.photoURL}
                 className='tooltip cursor-pointer tooltip-top '
-                title={user?.displayName}
+                data-tooltip-id='my-tooltip'
+                data-tooltip-content={user?.displayName}
               />
             </div>
           </div>
@@ -119,7 +121,7 @@ const Navbar = () => {
           type='checkbox'
           onChange={handleToggle}
           className='theme-controller'
-          value='synthwave'
+          value='dark'
         />
 
         {/* sun icon */}
@@ -164,6 +166,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <Tooltip id='my-tooltip' place='bottom' />
     </nav>
   );
 };
